@@ -1,0 +1,1 @@
+https://blog.codecentric.de/en/2018/08/x-509-client-certificates-with-spring-security/
