@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.dexmohq.spring.eureka.feign.AuthenticationAwareFeignAutoConfiguration,\
-  com.dexmohq.spring.eureka.SecurityAutoConfiguration
+  com.dexmohq.spring.eureka.feign.AuthenticationAwareFeignAutoConfiguration

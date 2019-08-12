@@ -27,14 +27,26 @@ public class TestController {
 
     @GetMapping("/proxy")
     public Map<String, Object> proxy() {
-        final Map<String, Object> res = new HashMap<>(microservice1.testAsUser());
-        res.put("source", "microservice-1");
-        return res;
+        return external(microservice1.testAsUser());
+    }
+
+    @GetMapping("/proxy/only-admin")
+    public Map<String, Object> proxyOnlyAdmin() {
+        return external(microservice1.onlyAdminAsUser());
     }
 
     @GetMapping("/system")
     public Map<String, Object> system() {
-        final Map<String, Object> res = new HashMap<>(microservice1.testAsSystem());
+        return external(microservice1.testAsSystem());
+    }
+
+    @GetMapping("/system/only-admin")
+    public Map<String, Object> onlyAdminAsSystem() {
+        return external(microservice1.onlyAdminAsSystem());
+    }
+
+    private static Map<String, Object> external(Map<String,Object> data) {
+        final Map<String, Object> res = new HashMap<>(data);
         res.put("source", "microservice-1");
         return res;
     }

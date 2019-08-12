@@ -14,8 +14,16 @@ public interface Microservice1Client {
     @AuthenticateAsUser
     Map<String, Object> testAsUser();
 
+    @GetMapping("/only-admin")
+    @AuthenticateAsUser
+    Map<String, Object> onlyAdminAsUser();
+
     @GetMapping
     @AuthenticateAsSystem
     Map<String, Object> testAsSystem();
+
+    @GetMapping("/only-admin")
+    @AuthenticateAsSystem
+    Map<String, Object> onlyAdminAsSystem();
 
 }
