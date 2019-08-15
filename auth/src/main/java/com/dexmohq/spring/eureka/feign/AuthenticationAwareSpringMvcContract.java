@@ -20,7 +20,7 @@ public class AuthenticationAwareSpringMvcContract extends SpringMvcContract {
 
     protected void authenticateAsSystem(MethodMetadata data) {
         if (systemAuthenticationToken == null) {
-            throw new IllegalStateException("Cannot use " + AuthenticateAsSystem.class + " without token. Please specify \"microservices.eureka.auth.system-token\"");
+            throw new IllegalStateException("Cannot use " + AuthenticateAsSystem.class.getSimpleName() + " without token. Please specify \"microservices.eureka.auth.system-token\"");
         }
         data.template().header("X-Auth-Type", "SYSTEM");
         addBearerToken(data, systemAuthenticationToken);
